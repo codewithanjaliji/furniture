@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Slider</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <div class="slide">
+        <div class="card">
+          <img src="./assets/2-min-overlay.webp" alt="" width="100%">
+          <div class="card-content">
+            <h2>Card Title</h2>
+            <p>This is some content inside the card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="./assets/2-min-overlay.webp" alt="" width="100%">
+          <div class="card-content">
+            <h2>Card Title</h2>
+            <p>This is some content inside the card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="./assets/2-min-overlay.webp" alt="" width="100%">
+          <div class="card-content">
+            <h2>Card Title</h2>
+            <p>This is some content inside the card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="./assets/2-min-overlay.webp" alt="" width="100%">
+          <div class="card-content">
+            <h2>Card Title</h2>
+            <p>This is some content inside the card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="./assets/2-min-overlay.webp" alt="" width="100%">
+          <div class="card-content">
+            <h2>Card Title</h2>
+            <p>This is some content inside the card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="./assets/2-min-overlay.webp" alt="" width="100%">
+          <div class="card-content">
+            <h2>Card Title</h2>
+            <p>This is some content inside the card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="./assets/2-min-overlay.webp" alt="" width="100%">
+          <div class="card-content">
+            <h2>Card Title</h2>
+            <p>This is some content inside the card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="./assets/2-min-overlay.webp" alt="" width="100%">
+          <div class="card-content">
+            <h2>Card Title</h2>
+            <p>This is some content inside the card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="./assets/2-min-overlay.webp" alt="" width="100%">
+          <div class="card-content">
+            <h2>Card Title</h2>
+            <p>This is some content inside the card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="./assets/2-min-overlay.webp" alt="" width="100%">
+          <div class="card-content">
+            <h2>Card Title</h2>
+            <p>This is some content inside the card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="./assets/2-min-overlay.webp" alt="" width="100%">
+          <div class="card-content">
+            <h2>Card Title</h2>
+            <p>This is some content inside the card.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more slides as needed -->
+    </div>
+  </div>
+  <button class="nav-button prev-button" onclick="prevSlide()"><i class="fa-solid fa-angle-right"></i></button>
+  <button class="nav-button next-button" onclick="nextSlide()"><i class="fa-solid fa-angle-left"></i></button>
+  <!-- <script src="script.js"></script> -->
+  <script>
+    // script.js
+
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      const slider = document.getElementById('slider');
+      const totalSlides = document.getElementsByClassName('slide').length;
+
+      if (index >= totalSlides) {
+        currentSlide = 0;
+      } else if (index < 0) {
+        currentSlide = totalSlides - 1;
+      } else {
+        currentSlide = index;
+      }
+
+      const offset = -currentSlide * 100 / 4;
+      slider.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    // Initialize the slider
+    showSlide(currentSlide);
+
+  </script>
+</body>
+
+</html>
+<style>
+  /* styles.css */
+
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .slider-container {
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slide {
+    min-width: 25%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    background-color: #f0f0f0;
+  }
+
+  .nav-button {
+    border-radius: 100%;
+    position: absolute;
+    top: 7px;
+    right: 19px;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  .prev-button {
+    right: 87px;
+    /* Adjust as needed */
+  }
+</style>
